@@ -1,48 +1,41 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_guide_2025/widgets/drawer_menu.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  int _counter = 0;
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: DrawerMenu(),
-      appBar: AppBar(
-        title: Text('Hola mundo'),
-        leadingWidth: 50,
-        centerTitle: true,
-        toolbarHeight: 70,
-      ),
-      body: Center(
-        child: Container(
-          color: const Color.fromARGB(255, 123, 209, 238),
-          width: 300,
-          height: 50,
-          alignment: Alignment.center,
-          child: Text(
-            'Cantidad de clicks: $_counter',
-            textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.black),
-          ),
+      appBar: AppBar(title: const Text("Home")),
+
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(color: Colors.deepPurple),
+              child: Text(
+                "Menú",
+                style: TextStyle(color: Colors.white, fontSize: 24),
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.movie),
+              title: const Text("Listado de Películas"),
+              onTap: () {
+                Navigator.pushNamed(context, 'lista_peliculas');
+              },
+            ),
+          ],
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndDocked,
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: FloatingActionButton(
-          child: Icon(Icons.add),
+
+      body: Center(
+        child: ElevatedButton(
           onPressed: () {
-            _counter++;
-            print('click $_counter');
-            setState(() {});
+            Navigator.pushNamed(context, 'lista_peliculas');
           },
+          child: const Text("Ir al listado"),
         ),
       ),
     );
