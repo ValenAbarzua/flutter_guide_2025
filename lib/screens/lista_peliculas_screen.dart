@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../mocks/peliculas_mock.dart';
 import '../models/pelicula.dart';
+import '../widgets/pelicula_card.dart';
 
 class ListaPeliculasScreen extends StatelessWidget {
   const ListaPeliculasScreen({super.key});
@@ -15,25 +16,12 @@ class ListaPeliculasScreen extends StatelessWidget {
         itemBuilder: (context, index) {
           final peli = mockPeliculas[index];
 
-          return ListTile(
-            leading: Image.network(
-              peli['imagen'],
-              width: 60,
-              fit: BoxFit.cover,
-            ),
-            title: Text(peli['titulo']),
-            subtitle: Text(peli['genero']),
-
+          return PeliculaCard(
+            titulo: peli['titulo'],
+            genero: peli['genero'],
+            imagen: peli['imagen'],
             onTap: () {
-              Navigator.pushNamed(
-                context,
-                'detalle_peliculas',
-                arguments: Pelicula(
-                  titulo: peli['titulo'],
-                  imagen: peli['imagen'],
-                  descripcion: peli['descripcion'],
-                ),
-              );
+              Navigator.pushNamed(context, 'detalle', arguments: peli);
             },
           );
         },
