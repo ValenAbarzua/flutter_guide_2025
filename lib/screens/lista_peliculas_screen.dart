@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../mocks/peliculas_mock.dart';
+import '../models/pelicula.dart';
 
 class ListaPeliculasScreen extends StatelessWidget {
   const ListaPeliculasScreen({super.key});
@@ -23,9 +24,16 @@ class ListaPeliculasScreen extends StatelessWidget {
             title: Text(peli['titulo']),
             subtitle: Text(peli['genero']),
 
-            // 👉 Navegar al detalle enviando parámetros
             onTap: () {
-              Navigator.pushNamed(context, 'detalle', arguments: peli);
+              Navigator.pushNamed(
+                context,
+                'detalle_peliculas',
+                arguments: Pelicula(
+                  titulo: peli['titulo'],
+                  imagen: peli['imagen'],
+                  descripcion: peli['descripcion'],
+                ),
+              );
             },
           );
         },
