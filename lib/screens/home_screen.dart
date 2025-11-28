@@ -11,23 +11,57 @@ class HomePage extends StatelessWidget {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
+            //Cabecera del drawer
             const DrawerHeader(
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 140, 238, 178),
+                color: Color.fromARGB(255, 58, 128, 85),
               ),
               child: Text(
                 "Menú",
                 style: TextStyle(
-                  color: Color.fromARGB(255, 82, 104, 81),
+                  color: Color.fromARGB(255, 23, 32, 22),
                   fontSize: 24,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
+            //Seccion home
+            ListTile(
+              leading: const Icon(Icons.movie),
+              title: const Text("Home"),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(context, 'home');
+              },
+            ),
+            //Seccion listado de peliculas
             ListTile(
               leading: const Icon(Icons.movie),
               title: const Text("Listado de Películas"),
               onTap: () {
+                Navigator.pop(context);
                 Navigator.pushNamed(context, 'lista_peliculas');
+              },
+            ),
+            const Divider(),
+
+            //Seccion configuracion
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: const Text("Configuracion"),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(context, 'configuracion');
+              },
+            ),
+
+            //Seccion acerca de la app
+            ListTile(
+              leading: const Icon(Icons.info_outline),
+              title: const Text("Acerca de la app"),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(context, 'informacion');
               },
             ),
           ],
