@@ -5,53 +5,88 @@ class DetalleScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // 🟡 Recuperamos los datos enviados desde la lista
     final peli = ModalRoute.of(context)!.settings.arguments as Map;
 
     return Scaffold(
-      appBar: AppBar(title: Text(peli['titulo'])),
-
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      backgroundColor: Colors.grey[200],
+      body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(
+            const SizedBox(height: 40),
+
+            //Imagen
+            ClipRRect(
+              borderRadius: BorderRadius.circular(20),
               child: Image.network(
                 peli['imagen'],
-                height: 250,
+                height: 330,
+                width: 250,
                 fit: BoxFit.cover,
               ),
             ),
-            const SizedBox(height: 20),
-
-            Text(
-              "Género: ${peli['genero']}",
-              style: const TextStyle(fontSize: 18),
-            ),
-            const SizedBox(height: 10),
-
-            Text(
-              "Popularidad: ${peli['popularidad']}",
-              style: const TextStyle(fontSize: 18),
-            ),
 
             const SizedBox(height: 20),
-            const Text(
-              "Formulario de ejemplo:",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+
+            //Estilo de panel blanco
+            Container(
+              width: double.infinity,
+              margin: const EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black12,
+                    blurRadius: 10,
+                    offset: const Offset(0, 5),
+                  ),
+                ],
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  //Titulo
+                  Text(
+                    peli['titulo'],
+                    style: const TextStyle(
+                      fontSize: 26,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+
+                  //Genero
+                  Text(
+                    "Genero: ${peli['genero']}",
+                    style: TextStyle(fontSize: 18, color: Colors.grey[700]),
+                  ),
+                  const SizedBox(height: 18),
+
+                  //Descripcion
+                  Text(
+                    peli['descripcion'],
+                    style: const TextStyle(fontSize: 16, height: 1.4),
+                  ),
+                  const SizedBox(height: 25),
+
+                  //Popularidad
+                  if (peli.containsKey('popularidad'))
+                    Row(
+                      children: [
+                        const Icon(Icons.star, color: Colors.amber, size: 28),
+                        const SizedBox(width: 6),
+                        Text(
+                          "Popularidad: ${peli['popularidad']}",
+                          style: const TextStyle(fontSize: 18),
+                        ),
+                      ],
+                    ),
+                ],
+              ),
             ),
 
-            TextFormField(
-              decoration: const InputDecoration(labelText: "Comentario"),
-            ),
-
-            Row(
-              children: [
-                const Text("Favorita"),
-                Switch(value: true, onChanged: (_) {}),
-              ],
-            ),
+            const SizedBox(height: 40),
           ],
         ),
       ),

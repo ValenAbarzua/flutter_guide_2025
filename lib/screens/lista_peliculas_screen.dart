@@ -20,9 +20,13 @@ class ListaPeliculasScreen extends StatelessWidget {
             titulo: peli['titulo'],
             genero: peli['genero'],
             imagen: peli['imagen'],
+            descripcion: peli['descripcion'],
+            popularidad: peli['popularidad'],
+            /*
             onTap: () {
               Navigator.pushNamed(context, 'detalle', arguments: peli);
             },
+            */
           );
         },
       ),

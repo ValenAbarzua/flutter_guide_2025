@@ -4,6 +4,8 @@ class PeliculaCard extends StatelessWidget {
   final String titulo;
   final String genero;
   final String imagen;
+  final String descripcion;
+  final double popularidad;
   final VoidCallback? onTap;
 
   const PeliculaCard({
@@ -11,13 +13,27 @@ class PeliculaCard extends StatelessWidget {
     required this.titulo,
     required this.genero,
     required this.imagen,
+    required this.descripcion,
+    required this.popularidad,
     this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: () {
+        Navigator.pushNamed(
+          context,
+          'detalle_peliculas',
+          arguments: {
+            'titulo': titulo,
+            'genero': genero,
+            'imagen': imagen,
+            'descripcion': descripcion,
+            'popularidad': popularidad,
+          },
+        );
+      },
       child: Card(
         elevation: 4,
         margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
