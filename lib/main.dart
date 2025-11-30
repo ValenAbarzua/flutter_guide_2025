@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_guide_2025/screens/agregar_peliculas_screen.dart';
 import 'package:flutter_guide_2025/screens/home_screen.dart';
 import 'package:flutter_guide_2025/screens/detalle_screen.dart';
 import 'package:flutter_guide_2025/screens/lista_peliculas_screen.dart';
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
         'home': (BuildContext context) => HomePage(),
         'lista_peliculas': (BuildContext context) => ListaPeliculasScreen(),
         'detalle_peliculas': (BuildContext context) => DetalleScreen(),
+        'agregar_peliculas': (BuildContext context) => AgregarPeliculasScreen(),
       },
       initialRoute: 'home',
       debugShowCheckedModeBanner: false,
