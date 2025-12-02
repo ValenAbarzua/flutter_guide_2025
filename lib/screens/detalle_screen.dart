@@ -8,7 +8,17 @@ class DetalleScreen extends StatelessWidget {
     final peli = ModalRoute.of(context)!.settings.arguments as Map;
 
     return Scaffold(
-      backgroundColor: Colors.grey[200],
+      appBar: AppBar(
+        //Appbar con boton para volver
+        title: Text(peli['titulo']),
+        backgroundColor: Colors.grey[200],
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(context),
+        ),
+      ),
+
+      backgroundColor: Color.fromARGB(255, 58, 128, 85),
       body: SingleChildScrollView(
         child: Column(
           children: [

@@ -50,7 +50,7 @@ class HomePage extends StatelessWidget {
               leading: const Icon(Icons.settings),
               title: const Text("Configuracion"),
               onTap: () {
-                Navigator.pop(context);
+                //     Navigator.pop(context);
                 Navigator.pushNamed(context, 'configuracion');
               },
             ),

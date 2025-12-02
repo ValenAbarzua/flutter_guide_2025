@@ -16,7 +16,7 @@ class ListaPeliculasScreenState extends State<ListaPeliculasScreen> {
       appBar: AppBar(title: const Text("Listado de Peliculas")),
 
       floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color.fromARGB(255, 9, 51, 11),
+        backgroundColor: Color.fromARGB(255, 58, 128, 85),
         child: const Icon(Icons.add, color: Colors.white),
         onPressed: () async {
           final nuevaPeli = await Navigator.pushNamed(
