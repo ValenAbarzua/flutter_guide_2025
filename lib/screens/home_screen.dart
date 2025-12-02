@@ -60,8 +60,8 @@ class HomePage extends StatelessWidget {
               leading: const Icon(Icons.info_outline),
               title: const Text("Acerca de la app"),
               onTap: () {
-                Navigator.pop(context);
-                Navigator.pushNamed(context, 'informacion');
+                // Navigator.pop(context);
+                Navigator.pushNamed(context, 'acerca');
               },
             ),
           ],

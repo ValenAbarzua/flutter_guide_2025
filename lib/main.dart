@@ -4,6 +4,7 @@ import 'package:flutter_guide_2025/screens/home_screen.dart';
 import 'package:flutter_guide_2025/screens/detalle_screen.dart';
 import 'package:flutter_guide_2025/screens/lista_peliculas_screen.dart';
 import 'package:flutter_guide_2025/screens/configuracion_screen.dart';
+import 'package:flutter_guide_2025/screens/acerca_screen.dart';
 
 /*
 void main() async {
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
         'detalle_peliculas': (BuildContext context) => DetalleScreen(),
         'agregar_peliculas': (BuildContext context) => AgregarPeliculasScreen(),
         'configuracion': (BuildContext context) => ConfiguracionScreen(),
+        'acerca': (BuildContext context) => AcercaScreen(),
       },
       initialRoute: 'home',
       debugShowCheckedModeBanner: false,
