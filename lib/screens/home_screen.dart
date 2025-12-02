@@ -50,7 +50,6 @@ class HomePage extends StatelessWidget {
               leading: const Icon(Icons.settings),
               title: const Text("Configuracion"),
               onTap: () {
-                //     Navigator.pop(context);
                 Navigator.pushNamed(context, 'configuracion');
               },
             ),
@@ -60,7 +59,6 @@ class HomePage extends StatelessWidget {
               leading: const Icon(Icons.info_outline),
               title: const Text("Acerca de la app"),
               onTap: () {
-                // Navigator.pop(context);
                 Navigator.pushNamed(context, 'acerca');
               },
             ),
@@ -99,7 +97,7 @@ class HomePage extends StatelessWidget {
 
               const SizedBox(height: 10),
 
-              // Descripción
+              // Descripcion
               const Text(
                 "Explora tus películas favoritas y mira todos sus detalles",
                 style: TextStyle(fontSize: 15),

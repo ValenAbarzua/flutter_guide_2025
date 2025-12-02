@@ -6,26 +6,6 @@ import 'package:flutter_guide_2025/screens/lista_peliculas_screen.dart';
 import 'package:flutter_guide_2025/screens/configuracion_screen.dart';
 import 'package:flutter_guide_2025/screens/acerca_screen.dart';
 
-/*
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load();
-  await Preferences.initShared();
-  runApp(
-    /// Providers are above [MyApp] instead of inside it, so that tests
-    /// can use [MyApp] while mocking the providers
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(
-          create: (_) => ThemeProvider(isDarkMode: Preferences.darkmode),
-        ),
-        ChangeNotifierProvider(create: (_) => EmpleadosProvider(), lazy: false),
-      ],
-      child: const MyApp(),
-    ),
-  );
-}
-*/
 void main() {
   runApp(const MyApp());
 }
